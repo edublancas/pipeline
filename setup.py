@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='pipeline',
       packages=['pipeline'],
-      version='0.3',
+      version='0.1',
       description='Pipeline project',
       url='https://github.com/edublancas/pipeline',
       download_url='https://github.com/edublancas/pipeline/tarball/0.1',
@@ -11,8 +11,5 @@ setup(name='pipeline',
       license='MIT',
       keywords=['datascience'],
       classifiers=[],
-      install_requires=[
-          'pyaml',
-          'pymongo'
-      ]
+      install_requires=[]
       )

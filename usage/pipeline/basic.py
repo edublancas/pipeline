@@ -1,7 +1,8 @@
 from pipeline import SKPipeline
+from pipeline.lab.util import top_k
+
 from dstools.util import config
 from dstools.util import load_yaml
-from pipeline.lab.util import top_k
 from dstools.sklearn import grid_generator
 
 from sklearn.datasets import load_iris
@@ -9,6 +10,7 @@ from sklearn.metrics import precision_score
 from sklearn.cross_validation import train_test_split
 import logging
 
+# logger configuration
 log = logging.getLogger()
 handler = logging.StreamHandler()
 formatter = logging.Formatter(
@@ -22,11 +24,10 @@ pip = SKPipeline(config, load_yaml('exp.yaml'), workers=1)
 
 
 # this function should return the all the data used to train models
-# must return a dictionary. In subsequentent functions the data will
-# be available in the 'data' parameter
+# as a dictionary. In subsequentent functions the data will be available in
+# the 'data' parameter
 @pip.load
 def load(config):
-    print config
     iris = load_iris()
     X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target,
                                                         test_size=0.30,
@@ -50,12 +51,9 @@ def model_iterator(config):
     return models
 
 
-# function used to train models, should return
-# a fitted model
+# function used to train models, must return a fitted model
 @pip.train
 def train(config, model, data, record):
-    print record
-
     model.fit(data['X_train'], data['y_train'])
     preds = model.predict(data['X_test'])
 
@@ -63,7 +61,7 @@ def train(config, model, data, record):
     return model
 
 
-# optional function used when every model has been trained
+# optional function run when every model has been trained
 @pip.finalize
 def finalize(config, experiment):
     pass
