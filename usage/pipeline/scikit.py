@@ -27,7 +27,10 @@ log.setLevel(logging.DEBUG)
     - Feature selection using SelectPercentile
 '''
 
+pip = Pipeline(config, load_yaml('exp.yaml'), workers=10, save=True)
 
+
+@pip.load
 def load(config):
     data = {}
     # data loading
@@ -40,6 +43,7 @@ def load(config):
     return data
 
 
+@pip.model_iterator
 def model_iterator(config):
     sklearn_models = config['sklearn_models']
     sklearn_models = grid_generator.grid_from_classes(sklearn_models,
@@ -49,6 +53,7 @@ def model_iterator(config):
     return all_models
 
 
+@pip.train
 def train(config, model, data, record):
     model, percentile = model
 
@@ -89,15 +94,10 @@ def train(config, model, data, record):
     record['test_preds'] = [(id_, pred) for id_, pred in zip(ids, preds)]
 
 
+@pip.finalize
 def finalize(config, experiment):
     experiment.records = top_k(experiment.records, 'mean_acc', 10)
     experiment['exp_name'] = config['exp_name']
 
-pip = Pipeline(config, load_yaml('exp.yaml'), workers=10, save=True)
-
-pip.load = load
-pip.model_iterator = model_iterator
-pip.train = train
-pip.finalize = finalize
 
 pip()

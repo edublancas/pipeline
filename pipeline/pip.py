@@ -38,21 +38,36 @@ class Pipeline(object):
         # initialize dict to save the data hashes
         self._data_hashes = {}
 
-        # initialize functions as None
-        self.load = None
-        self.model_iterator = None
-        self.train = None
-        self.finalize = None
+        # dict to keep track of user functions
+        self._user_fns = {}
+
         # create experiment instance
         self.ex = self.__class__._ExperimentClass(**exp_config)
 
+    # the following functions act just to register user-defined functions
+    def load(self, fn):
+        self._user_fns['load'] = fn
+        return fn
+
+    def model_iterator(self, fn):
+        self._user_fns['model_iterator'] = fn
+        return fn
+
+    def train(self, fn):
+        self._user_fns['train'] = fn
+        return fn
+
+    def finalize(self, fn):
+        self._user_fns['finalize'] = fn
+        return fn
+
     def _load(self):
         config = self.config.get('load')
-        data = self.load(config)
+        data = self._user_fns['load'](config)
         if isinstance(data, collections.Mapping):
             self.data = data
         else:
-            raise TypeError(('Object returned from self.load method should be'
+            raise TypeError(('Object returned from load method should be'
                              ' a Mapping class. e.g. dict'))
 
         # save the hash of the datasets if hash_data is True
@@ -74,12 +89,12 @@ class Pipeline(object):
         config = self.config.get('model_iterator')
         log.debug('Model iterator config: {}'.format(config))
 
-        return self.model_iterator(config)
+        return self._user_fns['model_iterator'](config)
 
     def _train(self, model, record):
         record['_model_class'] = class_name(model)
         config = self.config.get('train')
-        self.train(config, model, self.data, record)
+        self._user_fns['train'](config, model, self.data, record)
 
     def _finalize(self, experiment):
         # save config used for this experiment on all records
@@ -90,9 +105,9 @@ class Pipeline(object):
             self.ex['_data_sha1_hashes'] = self._data_hashes
 
         # run function if the user provided one
-        if self.finalize:
+        if self._user_fns['finalize']:
             config = self.config.get('finalize')
-            self.finalize(config, experiment)
+            self._user_fns['finalize'](config, experiment)
 
         # get time now
         pipeline_ended = datetime.utcnow()
@@ -104,7 +119,9 @@ class Pipeline(object):
         # store the time when the execution started
         self._pipeline_started = datetime.utcnow()
         # first - check if all the functions needed exist
-        if not all([self.load, self.model_iterator, self.train]):
+        if not all([self._user_fns['load'],
+                    self._user_fns['model_iterator'],
+                    self._user_fns['train']]):
             raise Exception(('You need to provide functions for load,'
                              ' model_iterator and train functions.'
                              ' One or more missing.'))

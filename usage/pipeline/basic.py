@@ -17,10 +17,14 @@ handler.setFormatter(formatter)
 log.addHandler(handler)
 log.setLevel(logging.INFO)
 
+# create pipeline object
+pip = SKPipeline(config, load_yaml('exp.yaml'), workers=1)
+
 
 # this function should return the all the data used to train models
 # must return a dictionary. In subsequentent functions the data will
 # be available in the 'data' parameter
+@pip.load
 def load(config):
     print config
     iris = load_iris()
@@ -38,15 +42,17 @@ def load(config):
 
 # this function is called on every iteration, it must return an unfitted
 # model
+@pip.model_iterator
 def model_iterator(config):
     classes = ['sklearn.ensemble.RandomForestClassifier',
-               'sklearn.linear_model.LogisticRegression']
+               'sklearn.ensemble.AdaBoostClassifier']
     models = grid_generator.grid_from_classes(classes)
     return models
 
 
 # function used to train models, should return
 # a fitted model
+@pip.train
 def train(config, model, data, record):
     print record
 
@@ -58,18 +64,11 @@ def train(config, model, data, record):
 
 
 # optional function used when every model has been trained
+@pip.finalize
 def finalize(config, experiment):
     pass
     # experiment.records = top_k(experiment.records, 'precision', 4)
 
-# create pipeline object
-pip = SKPipeline(config, load_yaml('exp.yaml'), workers=1)
-
-# assign your functions
-pip.load = load
-pip.model_iterator = model_iterator
-pip.train = train
-pip.finalize = finalize
 
 # run pipeline
 pip()
