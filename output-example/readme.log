@@ -1,0 +1,49 @@
+2016-05-26 12:00:56,217 pipeline.lab.experiment INFO     Backend selected: <pipeline.lab.backends.TinyDBBackend instance at 0x10bf781b8>
+2016-05-26 12:00:56,217 pipeline.pip INFO     Pipeline started. Loading data.
+2016-05-26 12:00:56,218 pipeline.pip INFO     Hashing X_test
+2016-05-26 12:00:56,219 pipeline.pip INFO     Hashing X_train
+2016-05-26 12:00:56,219 pipeline.pip INFO     Hashing y_train
+2016-05-26 12:00:56,219 pipeline.pip INFO     Hashing y_test
+2016-05-26 12:00:56,219 pipeline.pip INFO     Data loaded. Starting models loop.
+2016-05-26 12:00:56,246 pipeline.pip INFO     Models to train: 8
+2016-05-26 12:00:56,246 pipeline.pip INFO     1/8 - Running with: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='sqrt', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+
+2016-05-26 12:00:56,267 pipeline.pip INFO     2/8 - Running with: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='log2', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+
+2016-05-26 12:00:56,290 pipeline.pip INFO     3/8 - Running with: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='sqrt', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+
+2016-05-26 12:00:56,481 pipeline.pip INFO     4/8 - Running with: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='log2', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+
+2016-05-26 12:00:56,656 pipeline.pip INFO     5/8 - Running with: AdaBoostClassifier(algorithm='SAMME', base_estimator=None, learning_rate=1.0,
+          n_estimators=10, random_state=None)
+
+2016-05-26 12:00:56,672 pipeline.pip INFO     6/8 - Running with: AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None,
+          learning_rate=1.0, n_estimators=10, random_state=None)
+
+2016-05-26 12:00:56,692 pipeline.pip INFO     7/8 - Running with: AdaBoostClassifier(algorithm='SAMME', base_estimator=None, learning_rate=1.0,
+          n_estimators=100, random_state=None)
+
+2016-05-26 12:00:56,850 pipeline.pip INFO     8/8 - Running with: AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None,
+          learning_rate=1.0, n_estimators=100, random_state=None)
+
+2016-05-26 12:00:57,016 pipeline.pip INFO     Running finalize step.

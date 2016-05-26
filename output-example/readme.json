@@ -1,1 +1,146 @@
-{"_default": {"1": {"_config": {}, "_training_time_sec": 0.021666, "_model_name": "RandomForestClassifier", "_feature_importances": [0.14530041301951332, 0.022166647683115055, 0.35884579165157343, 0.4736871476457981], "precision": 0.97962962962962952, "_model_class": "sklearn.ensemble.forest.RandomForestClassifier", "_data_sha1_hashes": {"X_test": "6029a0b99831d59f286a6348882f497bfbf30813", "X_train": "991f8d200676623c2aabb1795641ad5279649b05", "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288", "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc"}, "_experiment_start": "2016-05-26 17:00:56", "_experiment_end": "2016-05-26 17:00:57", "_params": {"warm_start": false, "oob_score": false, "n_jobs": 1, "verbose": 0, "max_leaf_nodes": null, "bootstrap": true, "min_samples_leaf": 1, "n_estimators": 10, "min_samples_split": 2, "min_weight_fraction_leaf": 0.0, "criterion": "gini", "random_state": null, "max_features": "log2", "max_depth": null, "class_weight": null}}, "2": {"_config": {}, "_training_time_sec": 0.190426, "_model_name": "RandomForestClassifier", "_feature_importances": [0.13255057862717393, 0.026848786127202852, 0.40525769366279485, 0.4353429415828283], "precision": 0.97962962962962952, "_model_class": "sklearn.ensemble.forest.RandomForestClassifier", "_data_sha1_hashes": {"X_test": "6029a0b99831d59f286a6348882f497bfbf30813", "X_train": "991f8d200676623c2aabb1795641ad5279649b05", "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288", "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc"}, "_experiment_start": "2016-05-26 17:00:56", "_experiment_end": "2016-05-26 17:00:57", "_params": {"warm_start": false, "oob_score": false, "n_jobs": 1, "verbose": 0, "max_leaf_nodes": null, "bootstrap": true, "min_samples_leaf": 1, "n_estimators": 100, "min_samples_split": 2, "min_weight_fraction_leaf": 0.0, "criterion": "gini", "random_state": null, "max_features": "sqrt", "max_depth": null, "class_weight": null}}, "3": {"_config": {}, "_training_time_sec": 0.174548, "_model_name": "RandomForestClassifier", "_feature_importances": [0.09763746334923619, 0.021116549334145293, 0.4552249264376005, 0.426021060879018], "precision": 0.97962962962962952, "_model_class": "sklearn.ensemble.forest.RandomForestClassifier", "_data_sha1_hashes": {"X_test": "6029a0b99831d59f286a6348882f497bfbf30813", "X_train": "991f8d200676623c2aabb1795641ad5279649b05", "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288", "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc"}, "_experiment_start": "2016-05-26 17:00:56", "_experiment_end": "2016-05-26 17:00:57", "_params": {"warm_start": false, "oob_score": false, "n_jobs": 1, "verbose": 0, "max_leaf_nodes": null, "bootstrap": true, "min_samples_leaf": 1, "n_estimators": 100, "min_samples_split": 2, "min_weight_fraction_leaf": 0.0, "criterion": "gini", "random_state": null, "max_features": "log2", "max_depth": null, "class_weight": null}}, "4": {"_config": {}, "_training_time_sec": 0.015709, "_model_name": "AdaBoostClassifier", "_feature_importances": [0.0, 0.08077135407385329, 0.6684652090140156, 0.2507634369121312], "precision": 0.97962962962962952, "_model_class": "sklearn.ensemble.weight_boosting.AdaBoostClassifier", "_data_sha1_hashes": {"X_test": "6029a0b99831d59f286a6348882f497bfbf30813", "X_train": "991f8d200676623c2aabb1795641ad5279649b05", "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288", "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc"}, "_experiment_start": "2016-05-26 17:00:56", "_experiment_end": "2016-05-26 17:00:57", "_params": {"n_estimators": 10, "base_estimator": null, "random_state": null, "learning_rate": 1.0, "algorithm": "SAMME"}}}}
+{
+    "_default": {
+        "1": {
+            "_config": {},
+            "_data_sha1_hashes": {
+                "X_test": "6029a0b99831d59f286a6348882f497bfbf30813",
+                "X_train": "991f8d200676623c2aabb1795641ad5279649b05",
+                "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc",
+                "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288"
+            },
+            "_experiment_end": "2016-05-26 17:00:57",
+            "_experiment_start": "2016-05-26 17:00:56",
+            "_feature_importances": [
+                0.14530041301951332,
+                0.022166647683115055,
+                0.35884579165157343,
+                0.4736871476457981
+            ],
+            "_model_class": "sklearn.ensemble.forest.RandomForestClassifier",
+            "_model_name": "RandomForestClassifier",
+            "_params": {
+                "bootstrap": true,
+                "class_weight": null,
+                "criterion": "gini",
+                "max_depth": null,
+                "max_features": "log2",
+                "max_leaf_nodes": null,
+                "min_samples_leaf": 1,
+                "min_samples_split": 2,
+                "min_weight_fraction_leaf": 0.0,
+                "n_estimators": 10,
+                "n_jobs": 1,
+                "oob_score": false,
+                "random_state": null,
+                "verbose": 0,
+                "warm_start": false
+            },
+            "_training_time_sec": 0.021666,
+            "precision": 0.9796296296296295
+        },
+        "2": {
+            "_config": {},
+            "_data_sha1_hashes": {
+                "X_test": "6029a0b99831d59f286a6348882f497bfbf30813",
+                "X_train": "991f8d200676623c2aabb1795641ad5279649b05",
+                "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc",
+                "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288"
+            },
+            "_experiment_end": "2016-05-26 17:00:57",
+            "_experiment_start": "2016-05-26 17:00:56",
+            "_feature_importances": [
+                0.13255057862717393,
+                0.026848786127202852,
+                0.40525769366279485,
+                0.4353429415828283
+            ],
+            "_model_class": "sklearn.ensemble.forest.RandomForestClassifier",
+            "_model_name": "RandomForestClassifier",
+            "_params": {
+                "bootstrap": true,
+                "class_weight": null,
+                "criterion": "gini",
+                "max_depth": null,
+                "max_features": "sqrt",
+                "max_leaf_nodes": null,
+                "min_samples_leaf": 1,
+                "min_samples_split": 2,
+                "min_weight_fraction_leaf": 0.0,
+                "n_estimators": 100,
+                "n_jobs": 1,
+                "oob_score": false,
+                "random_state": null,
+                "verbose": 0,
+                "warm_start": false
+            },
+            "_training_time_sec": 0.190426,
+            "precision": 0.9796296296296295
+        },
+        "3": {
+            "_config": {},
+            "_data_sha1_hashes": {
+                "X_test": "6029a0b99831d59f286a6348882f497bfbf30813",
+                "X_train": "991f8d200676623c2aabb1795641ad5279649b05",
+                "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc",
+                "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288"
+            },
+            "_experiment_end": "2016-05-26 17:00:57",
+            "_experiment_start": "2016-05-26 17:00:56",
+            "_feature_importances": [
+                0.09763746334923619,
+                0.021116549334145293,
+                0.4552249264376005,
+                0.426021060879018
+            ],
+            "_model_class": "sklearn.ensemble.forest.RandomForestClassifier",
+            "_model_name": "RandomForestClassifier",
+            "_params": {
+                "bootstrap": true,
+                "class_weight": null,
+                "criterion": "gini",
+                "max_depth": null,
+                "max_features": "log2",
+                "max_leaf_nodes": null,
+                "min_samples_leaf": 1,
+                "min_samples_split": 2,
+                "min_weight_fraction_leaf": 0.0,
+                "n_estimators": 100,
+                "n_jobs": 1,
+                "oob_score": false,
+                "random_state": null,
+                "verbose": 0,
+                "warm_start": false
+            },
+            "_training_time_sec": 0.174548,
+            "precision": 0.9796296296296295
+        },
+        "4": {
+            "_config": {},
+            "_data_sha1_hashes": {
+                "X_test": "6029a0b99831d59f286a6348882f497bfbf30813",
+                "X_train": "991f8d200676623c2aabb1795641ad5279649b05",
+                "y_test": "f451276d1b92d28e69d15c830dfb9d449e01c0bc",
+                "y_train": "5c562ebb60fda4574f6e8e4eeafec7193f679288"
+            },
+            "_experiment_end": "2016-05-26 17:00:57",
+            "_experiment_start": "2016-05-26 17:00:56",
+            "_feature_importances": [
+                0.0,
+                0.08077135407385329,
+                0.6684652090140156,
+                0.2507634369121312
+            ],
+            "_model_class": "sklearn.ensemble.weight_boosting.AdaBoostClassifier",
+            "_model_name": "AdaBoostClassifier",
+            "_params": {
+                "algorithm": "SAMME",
+                "base_estimator": null,
+                "learning_rate": 1.0,
+                "n_estimators": 10,
+                "random_state": null
+            },
+            "_training_time_sec": 0.015709,
+            "precision": 0.9796296296296295
+        }
+    }
+}
