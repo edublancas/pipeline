@@ -58,3 +58,4 @@ def finalize(config, experiment):
 pip()
 ```
 
+The following example will  generate a JSON output ([see example](output-example/readme.json)) with relevant information (model type, parameters, feature importances, training time, etc.) automatically and will also print relevant information using the Python `logging` module ([see example](output-example/readme.log)).

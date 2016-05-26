@@ -65,11 +65,23 @@ class TinyDBBackend:
         self.con = TinyDB(conf['path'])
 
     def save(self, dicts):
+        self._cast_unserializable(dicts)
         self.con.insert_multiple(dicts)
 
     def update(self, dicts):
+        self._cast_unserializable(dicts)
         for d in dicts:
             self.con.update(d, eid=[d.eid])
 
     def get(self, **kwargs):
         raise Exception('Not implemented')
+
+    @staticmethod
+    def _cast_unserializable(dicts):
+        # tinydb cannot serialize some objects to json
+        # cast them before saving
+        import datetime
+        for d in dicts:
+            for k, v in d.items():
+                if isinstance(v, datetime.datetime):
+                    d[k] = v.strftime("%Y-%m-%d %H:%M:%S")

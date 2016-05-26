@@ -19,6 +19,7 @@ handler.setFormatter(formatter)
 log.addHandler(handler)
 log.setLevel(logging.INFO)
 
+
 # create pipeline object
 pip = SKPipeline(config, load_yaml('exp.yaml'))
 
