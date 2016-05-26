@@ -1,14 +1,14 @@
-from pipeline import SKPipeline
-from pipeline.lab.util import top_k
-
-from dstools.util import config
-from dstools.util import load_yaml
-from dstools.sklearn import grid_generator
+import logging
 
 from sklearn.datasets import load_iris
 from sklearn.metrics import precision_score
 from sklearn.cross_validation import train_test_split
-import logging
+from dstools.util import config
+from dstools.util import load_yaml
+from dstools.sklearn import grid_generator
+from pipeline.lab.util import top_k
+from pipeline import SKPipeline
+
 
 # logger configuration
 log = logging.getLogger()
@@ -20,7 +20,7 @@ log.addHandler(handler)
 log.setLevel(logging.INFO)
 
 # create pipeline object
-pip = SKPipeline(config, load_yaml('exp.yaml'), workers=1)
+pip = SKPipeline(config, load_yaml('exp.yaml'))
 
 
 # this function should return the all the data used to train models
@@ -41,8 +41,7 @@ def load(config):
     return data
 
 
-# this function is called on every iteration, it must return an unfitted
-# model
+# this function is called on every iteration, must return a model to train
 @pip.model_iterator
 def model_iterator(config):
     classes = ['sklearn.ensemble.RandomForestClassifier',
@@ -51,7 +50,7 @@ def model_iterator(config):
     return models
 
 
-# function used to train models, must return a fitted model
+# function used to train models returns the result of the operation
 @pip.train
 def train(config, model, data, record):
     model.fit(data['X_train'], data['y_train'])
@@ -61,11 +60,12 @@ def train(config, model, data, record):
     return model
 
 
-# optional function run when every model has been trained
+# optional function - use this to check results/decide what to store
+# in the database
 @pip.finalize
 def finalize(config, experiment):
-    pass
-    # experiment.records = top_k(experiment.records, 'precision', 4)
+    # only store the top 4 models using precision as the metric
+    experiment.records = top_k(experiment.records, 'precision', 4)
 
 
 # run pipeline
