@@ -1,4 +1,5 @@
-from pip import Pipeline, SKPipeline
+from .pip import Pipeline, SKPipeline
+from .lab.experiment import Experiment
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging

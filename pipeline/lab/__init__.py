@@ -1,3 +1,3 @@
-from pipeline.lab.FrozenJSON import FrozenJSON
-from pipeline.lab.record import Record, SKRecord
-from pipeline.lab.experiment import Experiment, SKExperiment
+from .FrozenJSON import FrozenJSON
+from .record import Record, SKRecord
+from .experiment import Experiment, SKExperiment

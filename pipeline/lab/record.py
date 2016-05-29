@@ -1,5 +1,5 @@
-from .lab import FrozenJSON
-from .sklearn import MetaEstimator
+from . import FrozenJSON
+from ..sklearn import MetaEstimator
 
 
 class Record(FrozenJSON):

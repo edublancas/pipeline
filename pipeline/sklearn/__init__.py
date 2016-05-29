@@ -1,1 +1,1 @@
-from MetaEstimator import MetaEstimator
+from .MetaEstimator import MetaEstimator

@@ -1,6 +1,7 @@
 from itertools import chain
 import logging
-from .lab import Record, SKRecord
+
+from . import Record, SKRecord
 
 log = logging.getLogger(__name__)
 
