@@ -1,5 +1,5 @@
-from pipeline.lab import FrozenJSON
-from pipeline.sklearn import MetaEstimator
+from .lab import FrozenJSON
+from .sklearn import MetaEstimator
 
 
 class Record(FrozenJSON):

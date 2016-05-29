@@ -1,10 +1,10 @@
-from pipeline.lab import Experiment, SKExperiment
-from pipeline.util import hash_sha1_numpy_array, class_name
-from pipeline.sklearn.util import model_name
-
 import logging
 import collections
 from datetime import datetime
+
+from .lab import Experiment, SKExperiment
+from .util import hash_sha1_numpy_array, class_name
+from .sklearn.util import model_name
 
 log = logging.getLogger(__name__)
 MAX_WORKERS = 20

@@ -1,5 +1,5 @@
 from pydoc import locate
-from pipeline.util import hash_sha1_numpy_array
+from .util import hash_sha1_numpy_array
 
 
 class MetaEstimator:

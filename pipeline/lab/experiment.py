@@ -1,6 +1,6 @@
 from itertools import chain
 import logging
-from pipeline.lab import Record, SKRecord
+from .lab import Record, SKRecord
 
 log = logging.getLogger(__name__)
 
