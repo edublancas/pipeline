@@ -1,4 +1,5 @@
 # Pipeline project
+[![Build Status](https://travis-ci.org/edublancas/pipeline.svg?branch=master)](https://travis-ci.org/edublancas/pipeline)
 
 WIP. A lot of things will change.
 
