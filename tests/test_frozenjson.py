@@ -17,6 +17,10 @@ def test_simple_attr(simple):
     assert simple.key1 == 'value1'
 
 
+def test_simple_getitem(simple):
+    assert simple['key1'] == 'value1'
+
+
 def test_simple_nested(nested):
     assert nested.key1.subkey1 == 'value1'
 
