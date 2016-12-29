@@ -28,3 +28,28 @@ bo.incumbents_values
 plt.plot(range(len(bo.incumbents_values)), bo.incumbents_values)
 
 fn([150])
+
+
+######################
+# Improved interface #
+######################
+
+# Configure a bayesian optimization object
+bo = bayesian_optimization(fn, lower, upper, num_iterations=10)
+
+# Run it - this returns the best values
+best = bo.run()
+
+# Get the results from the experiment
+bo.results()
+
+# Lazy run - this returns a generator
+gen = bo.lazy_run()
+
+# Iterate over the generator
+for i in gen:
+    # Print result from this iteration
+    print(i)
+
+# Get the results
+bo.results()
